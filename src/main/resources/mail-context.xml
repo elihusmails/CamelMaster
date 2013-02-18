@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns="http://www.springframework.org/schema/beans"
+    xsi:schemaLocation="http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd" >
+
+    <bean id="MailProcessor" class="mww.camel.master.mail.processor.MailProcessor" />
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring" >
+        <route>
+            <from uri="pop3s://pop.gmail.com?username=phangbyte&amp;password=markwebb" />
+            <process ref="MailProcessor" />
+            <to uri="file:target/mail" />
+        </route>
+    </camelContext>
+
+</beans>
