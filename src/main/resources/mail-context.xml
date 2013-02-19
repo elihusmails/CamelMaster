@@ -10,7 +10,7 @@
 
     <camelContext xmlns="http://camel.apache.org/schema/spring" >
         <route>
-            <from uri="pop3s://pop.gmail.com?username=phangbyte&amp;password=markwebb" />
+            <from uri="pop3s://pop.gmail.com?username=phangbyte&amp;password=whatever" />
             <process ref="MailProcessor" />
             <to uri="file:target/mail" />
         </route>
